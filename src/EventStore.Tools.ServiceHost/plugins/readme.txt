@@ -1,0 +1,1 @@
+﻿Place in this folder all the Application service modules that implement the IServiceStrategyPlugin with all related dependencies
