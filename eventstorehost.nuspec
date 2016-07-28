@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>EventStore-ServiceHost</id>
+    <version>1.0.0</version>
+    <title>EventStore Tools ServiceHost</title>
+    <authors>Riccardo Di Nuzzo</authors>
+    <owners>Riccardo Di Nuzzo</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple process that can host app-service plugins interacting with an EventStore</description>
+    <copyright>Copyright 2016</copyright>
+    <projectUrl>https://github.com/riccardone/EventStore.Tools.ServiceHost</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/riccardone/EventStore.Tools.ServiceHost/master/LICENSE</licenseUrl>
+    <projectSourceUrl>https://github.com/riccardone/EventStore.Tools.ServiceHost</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/riccardone/EventStore.Tools.ServiceHost/issues</bugTrackerUrl>
+    <docsUrl>https://github.com/riccardone/EventStore.Tools.ServiceHost/wiki/How-to-use-ServiceHost-library</docsUrl>
+  </metadata>
+  <files>
+      <file src="src\EventStore.Tools.ServiceHost\bin\Release\*" target="tools"/>
+      <file src="ChocolateyInstall.ps1" target="tools"/>
+      <file src="ChocolateyUninstall.ps1" target="tools"/>
+  </files>
+</package>

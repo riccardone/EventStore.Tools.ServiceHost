@@ -4,20 +4,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6E901E2F-398E-4D51-AAB8-D064E927156C}</ProjectGuid>
+    <ProjectGuid>{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventStore.Tools.PluginModel</RootNamespace>
-    <AssemblyName>EventStore.Tools.PluginModel</AssemblyName>
+    <RootNamespace>EventStore.Tools.Example.SimplePlugin</RootNamespace>
+    <AssemblyName>EventStore.Tools.Example.SimplePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\ServiceHost\plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,9 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IServiceStrategy.cs" />
-    <Compile Include="IServiceStrategyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleServiceStrategy.cs" />
+    <Compile Include="SimpleServiceStrategyFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventStore.Tools.PluginModel\EventStore.Tools.PluginModel.csproj">
+      <Project>{6e901e2f-398e-4d51-aab8-d064e927156c}</Project>
+      <Name>EventStore.Tools.PluginModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

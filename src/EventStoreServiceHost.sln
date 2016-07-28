@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.ServiceHos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.PluginModel", "EventStore.Tools.PluginModel\EventStore.Tools.PluginModel.csproj", "{6E901E2F-398E-4D51-AAB8-D064E927156C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Example.SimplePlugin", "EventStore.Tools.Example.SimplePlugin\EventStore.Tools.Example.SimplePlugin.csproj", "{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6E901E2F-398E-4D51-AAB8-D064E927156C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E901E2F-398E-4D51-AAB8-D064E927156C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E901E2F-398E-4D51-AAB8-D064E927156C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

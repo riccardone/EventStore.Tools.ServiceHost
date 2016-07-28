@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.IO;
-using System.Reflection;
+﻿using System;
+using System.Linq;
 using EventStore.Tools.PluginModel;
 using log4net;
 using log4net.Config;
@@ -16,9 +13,7 @@ namespace EventStore.Tools.ServiceHost
         internal static void Configure()
         {
             XmlConfigurator.Configure();
-            //var connection = Configuration.CreateConnection();
-            var plugInContainer = FindPlugins();
-            var serviceContainersFactories = GetPlugInServiceContainersStrategyFactories(plugInContainer);
+            var serviceContainersFactories = GetStrategyFactoriesFromPlugins();
             HostFactory.Run(x =>
             {
                 x.UseLog4Net();
@@ -38,55 +33,20 @@ namespace EventStore.Tools.ServiceHost
             });
         }
 
-        private static IServiceStrategyFactory[] GetPlugInServiceContainersStrategyFactories(CompositionContainer plugInContainer)
+        private static IServiceStrategyFactory[] GetStrategyFactoriesFromPlugins()
         {
-            var allPlugins = plugInContainer.GetExports<IServicePlugin>();
-
-            var strategyFactories = new List<IServiceStrategyFactory>();
-
-            foreach (var potentialPlugin in allPlugins)
-            {
-                try
-                {
-                    var plugin = potentialPlugin.Value;
-                    Log.Info($"Loaded strategy plugin: {plugin.Name} version {plugin.Version}.");
-                    strategyFactories.Add(plugin.GetStrategyFactory());
-                }
-                catch (CompositionException ex)
-                {
-                    Log.Error(ex);
-                }
-            }
-
-            return strategyFactories.ToArray();
-        }
-
-        private static CompositionContainer FindPlugins()
-        {
-            var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
-            var pluginsDirectory = GetPluginDirectory();
-
-            if (Directory.Exists(pluginsDirectory))
-            {
-                Log.Info($"Plugins path: {pluginsDirectory}");
-                catalog.Catalogs.Add(new DirectoryCatalog(pluginsDirectory));
-            }
-            else
-            {
-                Log.Info($"Cannot find plugins path: {pluginsDirectory}");
-            }
-
-            return new CompositionContainer(catalog);
-        }
-
-        private static string GetPluginDirectory()
-        {
-            var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ??
-                                   Path.GetFullPath(".");
-
-            var pluginsDirectory = Path.Combine(applicationDirectory, "plugins");
-            return pluginsDirectory;
+            PluginLoader.LoadPlugins("plugins", Log);
+            var plugins =
+                AppDomain.CurrentDomain.GetAssemblies()
+                    .Where(a => a.FullName.Contains("Plugin") && !a.FullName.Contains("PluginModel"))
+                    .ToList();
+            return (from domainAssembly in plugins
+                from assemblyType in domainAssembly.GetTypes()
+                where typeof(IServiceStrategyFactory).IsAssignableFrom(assemblyType)
+                select assemblyType).ToArray().Select(Activator.CreateInstance)
+                .Select(instance => instance)
+                .Cast<IServiceStrategyFactory>()
+                .ToArray();
         }
     }
 }
