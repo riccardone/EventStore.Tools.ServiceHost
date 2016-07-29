@@ -2,17 +2,17 @@
 using System.Linq;
 using EventStore.Tools.PluginModel;
 using log4net;
-using log4net.Config;
 using Topshelf;
 
 namespace EventStore.Tools.ServiceHost
 {
-    internal static class ConfigureService
+    public static class ConfigureHostService
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(ConfigureService));
-        internal static void Configure()
+        private static readonly ILog Log = LogManager.GetLogger(typeof(ConfigureHostService));
+        public static void Configure()
         {
-            XmlConfigurator.Configure();
+            //XmlConfigurator.Configure();
+            Logger.Setup();
             var serviceContainersFactories = GetStrategyFactoriesFromPlugins();
             HostFactory.Run(x =>
             {
@@ -27,9 +27,9 @@ namespace EventStore.Tools.ServiceHost
                 });
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
-                x.SetDescription("This process host any Application Service module implementing the IServicePlugin interface from the plugins directory");
-                x.SetDisplayName("EventStore Host");
-                x.SetServiceName("EventStore.Host");
+                x.SetDescription("This process host Application Service modules from the plugins directory");
+                x.SetDisplayName("EventStore Tools ServiceHost");
+                x.SetServiceName("EventStore.Tools.ServiceHost");
             });
         }
 

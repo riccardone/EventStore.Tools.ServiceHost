@@ -3,7 +3,7 @@ using log4net;
 
 namespace EventStore.Tools.ServiceHost
 {
-    public class ServiceContainer : IServiceStrategy
+    internal class ServiceContainer : IServiceStrategy
     {
         private readonly IServiceStrategyFactory[] _factories;
         private static readonly ILog Log = LogManager.GetLogger(typeof(ServiceContainer));

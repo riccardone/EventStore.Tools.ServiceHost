@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EventStore.Tools.ServiceHost")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This library can be used to create a process that run interectively or as a service and it hosts plugin modules like Application Services that interact with GetEventStore. Usage: 1) Create a simple Console app. 2) From the Main function call 'ConfigureHostService.Configure();' ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Riccardo Di Nuzzo")]
 [assembly: AssemblyProduct("EventStore.Tools.ServiceHost")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

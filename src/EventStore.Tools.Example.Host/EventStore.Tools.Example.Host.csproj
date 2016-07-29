@@ -4,24 +4,26 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0AA521AA-1FA6-4810-94A1-016F1AAE12AA}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3DC06042-1757-4AEB-9169-8E7C110BF9EC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventStore.Tools.Example.Plugin</RootNamespace>
-    <AssemblyName>EventStore.Tools.Example.Plugin</AssemblyName>
+    <RootNamespace>EventStore.Tools.Example.Host</RootNamespace>
+    <AssemblyName>EventStore.Tools.Example.Host</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\ServiceHost\plugins\</OutputPath>
+    <OutputPath>..\..\bin\Host\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventStore.Tools.PluginModel\EventStore.Tools.PluginModel.csproj">
-      <Project>{6e901e2f-398e-4d51-aab8-d064e927156c}</Project>
-      <Name>EventStore.Tools.PluginModel</Name>
+    <ProjectReference Include="..\EventStore.Tools.ServiceHost\EventStore.Tools.ServiceHost.csproj">
+      <Project>{891ad713-09c7-4d7e-993d-2301de58eebf}</Project>
+      <Name>EventStore.Tools.ServiceHost</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
