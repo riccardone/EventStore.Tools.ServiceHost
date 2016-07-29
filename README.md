@@ -3,5 +3,5 @@ This library can be used to create a process that run interectively or as a serv
   
 Usage:  
 1) Create a simple Console app  
-2) Install EventStore.Tools.ServiceHost using the following command in the Package Manager Console: Install-Package EventStore.Tools.ServiceHost  
+2) Install EventStore.Tools.ServiceHost nuget package: PM> Install-Package EventStore.Tools.ServiceHost  
 2) From the Main function call 'ConfigureHostService.Configure();' 
