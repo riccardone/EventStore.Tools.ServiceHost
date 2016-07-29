@@ -1,2 +1,7 @@
 # EventStore.Tools.ServiceHost
-A simple process to host AppService plugins interacting with an EventStore https://github.com/EventStore
+This library can be used to create a process that run interectively or as a service. It hosts Application Service modules that interact with GetEventStore https://github.com/EventStore  
+  
+Usage:  
+1) Create a simple Console app  
+2) Install EventStore.Tools.ServiceHost nuget package: PM> Install-Package EventStore.Tools.ServiceHost  
+2) From the Main function call 'ConfigureHostService.Configure();' 
