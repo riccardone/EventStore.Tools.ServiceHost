@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EventStore.Tools.PluginModel")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The types contained in this library can be used to create EventStore plugins. Those plugins can be loaded and run using EventStore.Tools.ServiceHost service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Riccardo Di Nuzzo")]
 [assembly: AssemblyProduct("EventStore.Tools.PluginModel")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
