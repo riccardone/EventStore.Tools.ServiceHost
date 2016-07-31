@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.PluginMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Example.SimplePlugin", "EventStore.Tools.Example.SimplePlugin\EventStore.Tools.Example.SimplePlugin.csproj", "{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Example.Host", "EventStore.Tools.Example.Host\EventStore.Tools.Example.Host.csproj", "{3DC06042-1757-4AEB-9169-8E7C110BF9EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStore.Tools.Host", "EventStore.Tools.Host\EventStore.Tools.Host.csproj", "{B6C26232-124E-4AAB-8F35-C5093D488AF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A74A64D-62C2-40A3-B87B-44BB56DB59D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DC06042-1757-4AEB-9169-8E7C110BF9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DC06042-1757-4AEB-9169-8E7C110BF9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DC06042-1757-4AEB-9169-8E7C110BF9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DC06042-1757-4AEB-9169-8E7C110BF9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C26232-124E-4AAB-8F35-C5093D488AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C26232-124E-4AAB-8F35-C5093D488AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C26232-124E-4AAB-8F35-C5093D488AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C26232-124E-4AAB-8F35-C5093D488AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

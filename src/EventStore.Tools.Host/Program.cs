@@ -1,6 +1,6 @@
 ﻿using EventStore.Tools.ServiceHost;
 
-namespace EventStore.Tools.Example.Host
+namespace EventStore.Tools.Host
 {
     class Program
     {
