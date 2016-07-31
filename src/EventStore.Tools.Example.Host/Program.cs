@@ -6,7 +6,7 @@ namespace EventStore.Tools.Example.Host
     {
         static void Main(string[] args)
         {
-            ConfigureHostService.Configure();
+            ConfigureServiceHost.Configure();
         }
     }
 }

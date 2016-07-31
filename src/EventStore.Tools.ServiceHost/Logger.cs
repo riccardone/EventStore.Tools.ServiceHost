@@ -18,14 +18,16 @@ namespace EventStore.Tools.ServiceHost
             };
             patternLayout.ActivateOptions();
 
-            var roller = new RollingFileAppender();
-            roller.AppendToFile = false;
-            roller.File = @"Logs\EventLog.txt";
-            roller.Layout = patternLayout;
-            roller.MaxSizeRollBackups = 5;
-            roller.MaximumFileSize = "1GB";
-            roller.RollingStyle = RollingFileAppender.RollingMode.Size;
-            roller.StaticLogFileName = true;
+            var roller = new RollingFileAppender
+            {
+                AppendToFile = false,
+                File = @"logs\server.log",
+                Layout = patternLayout,
+                MaxSizeRollBackups = 5,
+                MaximumFileSize = "1GB",
+                RollingStyle = RollingFileAppender.RollingMode.Size,
+                StaticLogFileName = true
+            };
             roller.ActivateOptions();
             hierarchy.Root.AddAppender(roller);
 
