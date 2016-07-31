@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EventStore.Tools.Example.Host")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("EventStore.Tools.Host")]
+[assembly: AssemblyDescription("Simple host process using ServiceHost lib")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EventStore.Tools.Example.Host")]
+[assembly: AssemblyCompany("Riccardo Di Nuzzo")]
+[assembly: AssemblyProduct("EventStore.Tools.Host")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
