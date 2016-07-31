@@ -3,12 +3,12 @@ This library can be used to create a process that run interectively or as a serv
   
 Usage:  
 1) Create a simple Console app  
-2) Install EventStore.Tools.ServiceHost nuget package: PM> Install-Package EventStore.Tools.ServiceHost  
+2) Reference EventStore.Tools.ServiceHost nuget package: PM> Install-Package EventStore.Tools.ServiceHost  
 3) From the Main function call 'ConfigureHostService.Configure();' 
 
 To create a plugin  
 1) Create a class library project with the AssemblyName terminating with the word 'Plugin' (Ex. MyServicePlugin)  
-2) Install EventStore.Tools.PluginModel nuget package: PM> Install-Package EventStore.Tools.PluginModel  
+2) Reference EventStore.Tools.PluginModel nuget package: PM> Install-Package EventStore.Tools.PluginModel  
 3) Implement the two interfaces provided by the PluginModel  
 4) Build the project and copy all the dll's into the ServiceHost\Plugins directory  
   
