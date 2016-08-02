@@ -12,6 +12,6 @@ To create a plugin
 3) Implement the two interfaces provided by the PluginModel  
 4) Build the project and copy all the dll's into the ServiceHost\Plugins directory  
   
-Here you can see an example of a simple Host project   https://github.com/riccardone/EventStore.Tools.ServiceHost/tree/master/src/EventStore.Tools.Example.Host  
+Here you can see an example of a simple Host project   https://github.com/riccardone/EventStore.Tools.ServiceHost/tree/master/src/EventStore.Tools.Host  
 and a minimal Plugin  
 https://github.com/riccardone/EventStore.Tools.ServiceHost/tree/master/src/EventStore.Tools.Example.SimplePlugin 
