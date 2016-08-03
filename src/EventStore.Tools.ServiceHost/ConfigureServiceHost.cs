@@ -21,9 +21,9 @@ namespace EventStore.Tools.ServiceHost
             HostFactory.Run(x =>
             {
                 x.UseLog4Net();
-                x.Service<ServiceContainer>(s =>
+                x.Service<ServiceStrategy>(s =>
                 {
-                    s.ConstructUsing(name => new ServiceContainer(serviceContainersFactories));
+                    s.ConstructUsing(name => new ServiceStrategy(serviceContainersFactories));
                     s.WhenStarted(
                         (tc, hostControl) =>
                             tc.Start());
@@ -44,6 +44,10 @@ namespace EventStore.Tools.ServiceHost
                 AppDomain.CurrentDomain.GetAssemblies()
                     .Where(a => a.FullName.Contains("Plugin") && !a.FullName.Contains("PluginModel"))
                     .ToList();
+            //var plugins2 =
+            //    AppDomain.CurrentDomain.GetAssemblies()
+            //        .Where(a => !a.FullName.Contains("PluginModel") && a.GetExportedTypes().Any(b => b.Name.EndsWith("ServiceStrategyFactory")))
+            //        .ToList();
             return (from domainAssembly in plugins
                     from assemblyType in domainAssembly.GetTypes()
                     where typeof(IServiceStrategyFactory).IsAssignableFrom(assemblyType)
