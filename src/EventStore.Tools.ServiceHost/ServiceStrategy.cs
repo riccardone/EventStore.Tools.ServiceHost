@@ -26,7 +26,7 @@ namespace EventStore.Tools.ServiceHost
                 strategy.Start();
                 Log.Info($"{strategy.GetType().Name} started");
             }
-            Log.Info("ServiceHost started");
+            Log.Info($"ServiceHost intialization completed. Found {_factories.Length} plugins");
             return true;
         }
     }
