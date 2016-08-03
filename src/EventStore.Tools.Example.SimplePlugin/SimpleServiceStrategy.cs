@@ -7,7 +7,7 @@ namespace EventStore.Tools.Example.SimplePlugin
     {
         public bool Start()
         {
-            Console.WriteLine("SimpleServiceStrategy started");
+            Console.WriteLine("I'm a SimpleServiceStrategy. You can use me to instantiate and start your application service logic.");
             return true;
         }
     }

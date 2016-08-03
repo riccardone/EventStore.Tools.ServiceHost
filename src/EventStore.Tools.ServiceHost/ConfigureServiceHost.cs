@@ -17,13 +17,13 @@ namespace EventStore.Tools.ServiceHost
                 XmlConfigurator.Configure();
             else
                 Logger.Setup();
-            var serviceContainersFactories = GetStrategyFactoriesFromPlugins();
+            var factories = GetStrategyFactories();
             HostFactory.Run(x =>
             {
                 x.UseLog4Net();
                 x.Service<ServiceStrategy>(s =>
                 {
-                    s.ConstructUsing(name => new ServiceStrategy(serviceContainersFactories));
+                    s.ConstructUsing(name => new ServiceStrategy(factories));
                     s.WhenStarted(
                         (tc, hostControl) =>
                             tc.Start());
@@ -37,21 +37,13 @@ namespace EventStore.Tools.ServiceHost
             });
         }
 
-        private static IServiceStrategyFactory[] GetStrategyFactoriesFromPlugins()
+        private static IServiceStrategyFactory[] GetStrategyFactories()
         {
             PluginLoader.LoadPlugins("plugins", Log);
-            var plugins =
-                AppDomain.CurrentDomain.GetAssemblies()
-                    .Where(a => a.FullName.Contains("Plugin") && !a.FullName.Contains("PluginModel"))
-                    .ToList();
-            //var plugins2 =
-            //    AppDomain.CurrentDomain.GetAssemblies()
-            //        .Where(a => !a.FullName.Contains("PluginModel") && a.GetExportedTypes().Any(b => b.Name.EndsWith("ServiceStrategyFactory")))
-            //        .ToList();
-            return (from domainAssembly in plugins
-                    from assemblyType in domainAssembly.GetTypes()
-                    where typeof(IServiceStrategyFactory).IsAssignableFrom(assemblyType)
-                    select assemblyType).ToArray().Select(Activator.CreateInstance)
+            return (from domainAssembly in AppDomain.CurrentDomain.GetAssemblies()
+                          from assemblyType in domainAssembly.GetTypes()
+                          where typeof(IServiceStrategyFactory).IsAssignableFrom(assemblyType) && assemblyType.IsClass
+                          select assemblyType).ToArray().Select(Activator.CreateInstance)
                 .Select(instance => instance)
                 .Cast<IServiceStrategyFactory>()
                 .ToArray();
