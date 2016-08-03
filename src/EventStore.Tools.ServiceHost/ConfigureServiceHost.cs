@@ -39,7 +39,8 @@ namespace EventStore.Tools.ServiceHost
 
         private static IServiceStrategyFactory[] GetStrategyFactories()
         {
-            PluginLoader.LoadPlugins("plugins", Log);
+            var pluginsFolder = GetPluginsFolder();
+            PluginLoader.LoadPlugins(pluginsFolder, Log);
             return (from domainAssembly in AppDomain.CurrentDomain.GetAssemblies()
                           from assemblyType in domainAssembly.GetTypes()
                           where typeof(IServiceStrategyFactory).IsAssignableFrom(assemblyType) && assemblyType.IsClass
@@ -47,6 +48,13 @@ namespace EventStore.Tools.ServiceHost
                 .Select(instance => instance)
                 .Cast<IServiceStrategyFactory>()
                 .ToArray();
+        }
+
+        private static string GetPluginsFolder()
+        {
+            var setting = ConfigurationManager.AppSettings["PluginsFolder"] ?? "plugins";
+            var uri = new Uri(setting, UriKind.RelativeOrAbsolute);
+            return uri.IsAbsoluteUri ? uri.AbsolutePath : setting;
         }
     }
 }
