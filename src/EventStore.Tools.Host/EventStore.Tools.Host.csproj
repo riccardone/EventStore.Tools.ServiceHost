@@ -36,8 +36,8 @@
       <HintPath>..\packages\EventStore.Tools.PluginModel.1.0.0\lib\net40\EventStore.Tools.PluginModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EventStore.Tools.ServiceHost, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EventStore.Tools.ServiceHost.1.2.0\lib\net40\EventStore.Tools.ServiceHost.dll</HintPath>
+    <Reference Include="EventStore.Tools.ServiceHost, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EventStore.Tools.ServiceHost.1.2.1\lib\net40\EventStore.Tools.ServiceHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -65,13 +65,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="plugins\readme.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
