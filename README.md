@@ -7,7 +7,7 @@ Usage:
 3) From the Main function call 'ConfigureServiceHost.Configure();' 
 
 To create a plugin  
-1) Create a class library project with the AssemblyName terminating with the word 'Plugin' (Ex. MyServicePlugin)  
+1) Create a class library project 
 2) Reference EventStore.Tools.PluginModel nuget package: PM> Install-Package EventStore.Tools.PluginModel  
 3) Implement the two interfaces provided by the PluginModel  
 4) Build the project and copy all the dll's into the ServiceHost\Plugins directory  
